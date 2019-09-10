@@ -12,7 +12,7 @@ import com.projeto.transacoes.modelo.Transacao;
 public class TransacaoServico {
 
 	public Transacao recuperarTransacoes() {
-		Amount amount = new Amount(BigDecimal.valueOf(120), CurrencyCode.REAL);
+		Amount amount = new Amount(BigDecimal.valueOf(120), CurrencyCode.EURO);
 		return new Transacao("dflkajslçkfjdaslkjflçkasdjf54646dsafadsfadsf", amount);
 	}
 
