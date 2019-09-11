@@ -1,8 +1,17 @@
 package com.projeto.transacoes.modelo;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+@Entity
 public class Transacao {
 
+	@Id
 	private String trackingId;
+	
+	@OneToOne(cascade = CascadeType.ALL)
 	private Amount amount;
 
 	public String getTrackingId() {
