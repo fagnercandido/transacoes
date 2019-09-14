@@ -15,6 +15,7 @@ public class TransactionRest {
 	
 	
 	@RequestMapping("/transacoes")
+	//value = "/custom", method = RequestMethod.POST
     public Transacao recuperarTransacao() {
         return transacaoServico.recuperarTransacoes();
     }

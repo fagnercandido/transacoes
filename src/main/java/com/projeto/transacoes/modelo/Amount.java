@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import com.projeto.transacoes.anotacoes.PagamentoMinimo;
+
 @Entity
 public class Amount {
 
@@ -13,6 +15,7 @@ public class Amount {
 	@GeneratedValue
 	private Long id;
 	
+	@PagamentoMinimo(valor = 0.1D)
 	private BigDecimal amount;
 	private CurrencyCode currencyCode;
 
