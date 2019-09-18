@@ -51,4 +51,48 @@ public class Transacao {
 		this.pagamento = pagamento;
 	}
 
+	public Transacao(Builder builder) {
+		this.amount = builder.amount;
+		this.merchant = builder.merchant;
+		this.terminal = builder.terminal;
+		this.pagamento = builder.pagamento;
+	}
+
+	public static class Builder {
+		public String trackingId;
+		public Amount amount;
+		public Merchant merchant;
+		public Terminal terminal;
+		public Pagamento pagamento;
+
+		public Builder comTrackingId(String trackingId) {
+			this.trackingId = trackingId;
+			return this;
+		}
+
+		public Builder comAmount(Amount amount) {
+			this.amount = amount;
+			return this;
+		}
+
+		public Builder comMerchant(Merchant merchant) {
+			this.merchant = merchant;
+			return this;
+		}
+
+		public Builder comTerminal(Terminal terminal) {
+			this.terminal = terminal;
+			return this;
+		}
+
+		public Builder comPagamento(Pagamento pagamento) {
+			this.pagamento = pagamento;
+			return this;
+		}
+
+		public Transacao build() {
+			return new Transacao(this);
+		}
+	}
+
 }

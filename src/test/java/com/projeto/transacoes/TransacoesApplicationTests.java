@@ -12,6 +12,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.projeto.servico.TransacaoServico;
 import com.projeto.transacoes.modelo.Transacao;
 
+import java.util.List;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class TransacoesApplicationTests {
@@ -21,8 +23,8 @@ public class TransacoesApplicationTests {
     
     @Test
     public void testTrackingIdIsCorrect() {
-    	Transacao transacao = transacaoServico.recuperarTransacoes();
-    	assertEquals("dflkajslçkfjdaslkjflçkasdjf54646dsafadsfadsf", transacao.getTrackingId());
+    	List<Transacao> transacoes = transacaoServico.recuperarTransacoes();
+    	assertEquals("dflkajslçkfjdaslkjflçkasdjf54646dsafadsfadsf", transacoes.stream().findFirst().get().getTrackingId());
     }
 
 }

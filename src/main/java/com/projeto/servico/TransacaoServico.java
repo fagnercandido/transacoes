@@ -1,6 +1,7 @@
 package com.projeto.servico;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -18,6 +19,16 @@ public class TransacaoServico {
 
 	public void salvarTransacoes(Transacao transacao) {
 		transacaoRepository.save(transacao);
+	}
+
+	public Transacao recuperarPorTrackingId(String trackingId) {
+		Transacao transacao = null;
+		Optional<Transacao> optionalTransacao = transacaoRepository.findById(trackingId);
+		if(optionalTransacao.isPresent()) {
+			Transacao tOptional = optionalTransacao.get();
+			transacao = new Transacao.Builder().comAmount(tOptional.getAmount()).comTerminal(tOptional.getTerminal()).build();
+		}
+		return transacao;
 	}
 
 }
